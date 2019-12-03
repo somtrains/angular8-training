@@ -1,0 +1,12 @@
+<ng-container *ngIf="item$ | async as item">
+  <h2>
+    Details of <em>{{ item.title }}</em>
+  </h2>
+
+  <p>
+    {{ item.description }}
+  </p>
+</ng-container>
+
+
+<a routerLink="/dashboard">Back to dashboard</a>

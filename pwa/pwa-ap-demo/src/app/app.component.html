@@ -1,0 +1,67 @@
+
+
+<div class="navbar-fixed">
+  <nav class="deep-purple darken-4 " id="header">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo left"><i>pwa-ap-demo</i></a>
+      </div>
+  </nav>
+  </div>
+
+
+
+<div class="container">
+  <div *ngIf="loading"class=" preloader-wrapper big active loader" style="margin-top:40px;margin-left:40px;">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br><br>
+<div class="container" *ngIf="!loading">
+  <div class="row">
+  
+    <div class="col s12 m6 l6 " *ngFor="let headline of headlines?.articles">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{headline.urlToImage}}" onerror="this.onerror=null;this.src='../assets/placeholder.png';" style="height:230px;">
+          <div class="chip source"><span class="blue-text">{{headline.source.name}}</span> </div>
+          <span class="card-title" style="background-color: rgba(0, 0, 0, 0.575)">{{headline.title}}</span>
+        </div>
+        <div class="card-content">
+          <p> {{headline.description| slice:0:50}}...</p>
+        </div>
+        <div class="card-action">
+          <a href="{{headline.url}}" target="_blank" class="waves-effect waves-light btn-small round-btn deep-purple darken-2">Full Story</a>
+           &nbsp; 
+          <a (click)="share(headline)"  class="waves-effect waves-light btn-small round-btn deep-purple darken-2">Share</a>
+          <button (click)="speak(headline)" [disabled]="started"  class="waves-effect waves-light btn-small round-btn deep-purple darken-2 right">SPEAK</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+  <br><br><br><br>
+
+
+
+  <footer class="footer">
+    <ul  class="tabs grey lighten-2">
+            <li class="tab col s3" (click)="headlineByCategory('sports')"><a  class="waves-effect waves-dark"><span class="black-text">Sports</span></a></li>
+            <li class="tab col s3 " (click)="headlineByCategory('business')"><a   class="waves-effect waves-dark"><span class="black-text">Business</span></a></li>
+            <li class="tab col s3" (click)="headlineByCategory('technology')"><a  class="waves-effect waves-dark"><span class="black-text">Technology</span></a></li>
+            <li class="tab col s3 " (click)="headlineByCategory('entertainment')"><a class="waves-effect waves-dark"><span class="black-text">Entertainment</span></a></li>
+            <li class="tab col s3" (click)="headlineByCategory('health')"><a  class="waves-effect waves-dark"><span class="black-text">Health</span></a></li>
+            <li class="tab col s3" (click)="headlineByCategory('science')"><a  class="waves-effect waves-dark"><span class="black-text">Science</span></a></li>
+          </ul>
+</footer>
