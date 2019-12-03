@@ -25,5 +25,19 @@
         ]
       }
     }
+  ], 
+  "dataGroups": [
+    {
+      "name": "headlines",
+      "urls": [
+        "https://newsapi.org/**"        
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "1d",
+        "timeout": "5s",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
